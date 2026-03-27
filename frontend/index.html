@@ -856,7 +856,7 @@ function _cmbBind(id) {
   });
 
   inp.addEventListener('blur', () => {
-    setTimeout(() => _cmbCloseDropdown(id, true), 160);
+    setTimeout(() => _cmbCloseDropdown(id, true), 60000);
   });
 
   inp.addEventListener('mousedown', (e) => {
@@ -1803,7 +1803,7 @@ function showToast(title, msg, type='success') {
   el('toast-title').textContent = title; el('toast-msg').textContent = msg;
   toast.classList.add('show');
   clearTimeout(_toastTmr);
-  _toastTmr = setTimeout(() => toast.classList.remove('show'), 5500);
+  _toastTmr = setTimeout(() => toast.classList.remove('show'), 60000);
 }
 
 function el(id) {
@@ -1817,8 +1817,8 @@ function el(id) {
 // FETCH WRAPPER — P5: timeout + mensajes amigables en errores de red
 // ════════════════════════════════════════════════════════════════════════════
 
-const _FETCH_TIMEOUT_MS = 45_000;  // 45 s para peticiones normales
-const _FETCH_TIMEOUT_HEAVY = 120_000; // 2 min para reportes PDF/Excel
+const _FETCH_TIMEOUT_MS = 120_000;  //  2 min para peticiones normales
+const _FETCH_TIMEOUT_HEAVY = 180_000; // 3 min para reportes PDF/Excel
 
 /**
  * Wrapper sobre fetch() con AbortController y mensajes amigables.
